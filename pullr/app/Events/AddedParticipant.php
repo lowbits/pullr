@@ -10,20 +10,20 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class OrderStatusChanged implements ShouldBroadcast
+class AddedParticipant implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $foo = "bar";
+    
+    public $participant;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($participant)
     {
-        //
+        $this->participant = $participant;
     }
 
     /**
@@ -33,6 +33,6 @@ class OrderStatusChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('orders');
+        return new Channel('welcome');
     }
 }

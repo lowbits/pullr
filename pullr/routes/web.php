@@ -13,10 +13,14 @@ use App\Events\OrderStatusChanged;
 |
 */
 
+
+Route::get('settings', 'SettingsController@index');
+
 Route::get('/', function () {
-    OrderStatusChanged::dispatch();
     return view('welcome');
 });
+
+Route::resource('/participant', 'ParticipantController');
 
 Auth::routes();
 

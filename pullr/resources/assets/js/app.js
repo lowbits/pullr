@@ -4,6 +4,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import store from './store/index.js'
 
 require('./bootstrap');
 
@@ -15,8 +16,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('list-participants-component', require('./components/ListParticipantsComponent.vue'));
+Vue.component('add-participant-component', require('./components/AddParticipantComponent.vue'));
+Vue.component('tour-component', require('./components/TourComponent.vue'));
+Vue.component('tour-settings-component', require('./components/TourSettingsComponent.vue'));
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });
